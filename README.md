@@ -1,1 +1,1 @@
-# captura-imagen-a-texto
+# Reconocimiento Óptico de Caracteres
