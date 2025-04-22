@@ -5,12 +5,12 @@ import pytesseract
 from PIL import Image
 
 
-st.title("Reconocimiento óptico de Caracteres")
+st.title("Digitalización de Texto mediante OCR")
 
-img_file_buffer = st.camera_input("Toma una Foto")
+img_file_buffer = st.camera_input("Captura una imagen")
 
 with st.sidebar:
-      filtro = st.radio("Aplicar Filtro",('Con Filtro', 'Sin Filtro'))
+      filtro = st.radio("Agregar efecto",('Con efecto', 'Sin efecto'))
 
 
 if img_file_buffer is not None:
@@ -18,7 +18,7 @@ if img_file_buffer is not None:
     bytes_data = img_file_buffer.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
     
-    if filtro == 'Con Filtro':
+    if filtro == 'Con efecto':
          cv2_img=cv2.bitwise_not(cv2_img)
     else:
          cv2_img= cv2_img
